@@ -1,16 +1,25 @@
-import React from 'react';
+import React, { useState } from 'react';
 
+import Modal from '../components/Shared/UI/modal';
 import './home.css';
 
-const home = () => {
-	const createRoomHandler = () => {};
+const Home = () => {
+	const [showModal, setShowModal] = useState(false);
+
+	const createRoomHandler = () => {
+		setShowModal(true);
+	};
 
 	const joinRoomHandler = () => {
+		setShowModal(true);
 		console.log('join room');
 	};
 
 	return (
 		<main className="main">
+			{showModal && (
+				<Modal show={showModal} closeHandler={setShowModal}></Modal>
+			)}
 			<button className="main--btn create" onClick={createRoomHandler}>
 				Create
 			</button>
@@ -21,4 +30,4 @@ const home = () => {
 	);
 };
 
-export default home;
+export default Home;

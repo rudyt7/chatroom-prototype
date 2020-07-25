@@ -17,8 +17,8 @@ const ModalOverlay = () => {
 const modal = (props) => {
 	return (
 		<div>
-			{props.show && <Backdrop />}
-			{props.show && <ModalOverlay />}
+			{props.show && <Backdrop closeHandler={props.closeHandler} />}
+			{props.show && <ModalOverlay closeHandler={props.closeHandler} />}
 		</div>
 	);
 };

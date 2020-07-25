@@ -8,6 +8,14 @@ const Home = () => {
 
 	const createRoomHandler = () => {
 		setShowModal(true);
+
+		// create room
+
+		// generate a room id
+
+		// store in context
+
+		// add a dynamic route for that id
 	};
 
 	const joinRoomHandler = () => {

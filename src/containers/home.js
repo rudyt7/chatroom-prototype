@@ -1,32 +1,30 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 
 import Modal from '../components/Shared/UI/modal';
+import { RoomContext } from '../components/context/roomContext';
 import './home.css';
 
 const Home = () => {
 	const [showModal, setShowModal] = useState(false);
+	const [type, setType] = useState('');
+
+	const roomContext = useContext(RoomContext);
 
 	const createRoomHandler = () => {
+		setType('create');
 		setShowModal(true);
-
-		// create room
-
-		// generate a room id
-
-		// store in context
-
-		// add a dynamic route for that id
+		console.log(roomContext.rooms);
 	};
 
 	const joinRoomHandler = () => {
+		setType('join');
 		setShowModal(true);
-		console.log('join room');
 	};
 
 	return (
 		<main className="main">
 			{showModal && (
-				<Modal show={showModal} closeHandler={setShowModal}></Modal>
+				<Modal show={showModal} type={type} closeHandler={setShowModal}></Modal>
 			)}
 			<button className="main--btn create" onClick={createRoomHandler}>
 				Create

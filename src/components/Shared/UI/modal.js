@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import CreateRoomForm from '../Forms/createRoom';
+import JoinRoomForm from '../Forms/joinRoom';
 import Backdrop from './backdrop';
 import './modal.css';
 
@@ -13,17 +14,7 @@ const ModalOverlay = (props) => {
 	}
 
 	if (props.type === 'join') {
-		modalJsx = (
-			<form>
-				<label htmlFor="roomName">Room Name</label>
-				<input type="text" name="roomName" />
-				<label htmlFor="username">User Name</label>
-				<input type="text" name="username" />
-				<label htmlFor="theme">Theme</label>
-
-				<button type="submit">Submit</button>
-			</form>
-		);
+		modalJsx = <JoinRoomForm closeHandler={props.closeHandler} />;
 	}
 
 	if (props.type === 'post') {

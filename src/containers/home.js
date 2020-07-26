@@ -2,6 +2,7 @@ import React, { useState, useContext } from 'react';
 
 import Modal from '../components/Shared/UI/modal';
 import { RoomContext } from '../components/context/roomContext';
+import { UserContext } from '../components/context/userContext';
 import './home.css';
 
 const Home = () => {
@@ -9,16 +10,17 @@ const Home = () => {
 	const [type, setType] = useState('');
 
 	const roomContext = useContext(RoomContext);
+	const userContext = useContext(UserContext);
 
 	const createRoomHandler = () => {
 		setType('create');
 		setShowModal(true);
-		console.log(roomContext.rooms);
 	};
 
 	const joinRoomHandler = () => {
 		setType('join');
 		setShowModal(true);
+		console.log(roomContext.rooms);
 	};
 
 	return (

@@ -20,11 +20,7 @@ const ModalOverlay = (props) => {
 				<label htmlFor="username">User Name</label>
 				<input type="text" name="username" />
 				<label htmlFor="theme">Theme</label>
-				<select name="theme">
-					<option>Red</option>
-					<option>Blue</option>
-					<option>Green</option>
-				</select>
+
 				<button type="submit">Submit</button>
 			</form>
 		);

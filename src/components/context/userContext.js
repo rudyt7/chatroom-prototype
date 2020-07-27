@@ -9,7 +9,6 @@ const UserContextProvider = (props) => {
 	const [users, setUsers] = useState([]);
 
 	const addUsersHandler = (username, roomId) => {
-		console.log('username, roomId', username, roomId);
 		setUsers([...users, { username, roomId }]);
 	};
 

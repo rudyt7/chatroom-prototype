@@ -10,7 +10,6 @@ const Home = () => {
 	const [type, setType] = useState('');
 
 	const roomContext = useContext(RoomContext);
-	const userContext = useContext(UserContext);
 
 	const createRoomHandler = () => {
 		setType('create');
@@ -20,13 +19,12 @@ const Home = () => {
 	const joinRoomHandler = () => {
 		setType('join');
 		setShowModal(true);
-		console.log(roomContext.rooms);
 	};
 
 	return (
 		<main className="main">
 			{showModal && (
-				<Modal show={showModal} type={type} closeHandler={setShowModal}></Modal>
+				<Modal show={showModal} type={type} closeHandler={setShowModal} />
 			)}
 			<button className="main--btn create" onClick={createRoomHandler}>
 				Create

@@ -18,6 +18,7 @@ const App = () => {
 					theme={room.theme}
 					availability={room.availability}
 					posts={room.posts}
+					id={room.id}
 				/>
 			</Route>
 		);

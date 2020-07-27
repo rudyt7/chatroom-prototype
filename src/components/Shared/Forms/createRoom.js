@@ -13,9 +13,7 @@ const CreateRoom = (props) => {
 		const theme = event.target.theme.value;
 		const id = Math.random() * 600000;
 		const avail = event.target.availability.value;
-		const roomId = roomContext.addRoom(name, theme, id, avail);
-		const userName = event.target.username.value;
-		userContext.addUsers(userName, roomId);
+		roomContext.addRoom(name, theme, id, avail);
 		props.closeHandler(false);
 	};
 
@@ -24,8 +22,6 @@ const CreateRoom = (props) => {
 			<form onSubmit={createRoomHandler}>
 				<label htmlFor="roomName">Room Name</label>
 				<input type="text" name="roomName" />
-				<label htmlFor="username">User Name</label>
-				<input type="text" name="username" />
 				<select name="theme">
 					<option value="red">Red</option>
 					<option value="blue">Blue</option>

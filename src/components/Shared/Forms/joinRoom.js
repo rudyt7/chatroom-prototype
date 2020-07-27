@@ -1,5 +1,5 @@
-import React, { Fragment, useContext } from 'react';
-import { Route, Link } from 'react-router-dom';
+import React, { useContext } from 'react';
+import { Link } from 'react-router-dom';
 
 import { RoomContext } from '../../context/roomContext';
 
@@ -9,16 +9,20 @@ const JoinRoom = () => {
 	const roomLinks = roomContext.rooms.map((room) => {
 		if (room.availability === 'public') {
 			return (
-				<Link key={room.id} to={`/room/${room.id}`}>
-					{room.name}
+				<Link className="room__link" key={room.id} to={`/room/${room.id}`}>
+					{room.name} : {room.id}
 				</Link>
 			);
 		}
 	});
 
 	return (
-		<div className="room__links--container">
-			<div className="room__links">{roomLinks}</div>
+		<div>
+			<div className="room__links--container">
+				<h1 className="form__heading">Join Room</h1>
+				<div className="">Room Name : Room Id</div>
+				<div className="room__links">{roomLinks}</div>
+			</div>
 		</div>
 	);
 };

@@ -9,6 +9,7 @@
 	background-color: rgb(236, 232, 232);
 	border: 5px rgb(137, 41, 226) solid;
 	z-index: 1000;
+	box-shadow: 10px 10px 100px rgb(107, 41, 168);
 }
 
 @media (max-width: 750px) {

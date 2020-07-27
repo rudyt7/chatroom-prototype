@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 
 import { RoomContext } from '../../context/roomContext';
 import { UserContext } from '../../context/userContext';
+import './forms.css';
 
 const CreateRoom = (props) => {
 	const roomContext = useContext(RoomContext);
@@ -19,20 +20,30 @@ const CreateRoom = (props) => {
 
 	return (
 		<div>
-			<form onSubmit={createRoomHandler}>
-				<label htmlFor="roomName">Room Name</label>
-				<input type="text" name="roomName" />
-				<select name="theme">
-					<option value="red">Red</option>
-					<option value="blue">Blue</option>
-					<option value="green">Green</option>
-				</select>
-				<label htmlFor="availability">Availability</label>
-				<select name="availability">
-					<option value="public">Public</option>
-					<option value="private">Private</option>
-				</select>
-				<button type="submit">Submit</button>
+			<form onSubmit={createRoomHandler} className="form__container">
+				<h1 className="form__heading">Create Room</h1>
+				<label htmlFor="roomName" className="form__label">
+					Room Name :
+					<input type="text" name="roomName" className="form__input" />
+				</label>
+				<label htmlFor="theme" className="form__label">
+					Theme :
+					<select name="theme" className="form__input">
+						<option value="red">Red</option>
+						<option value="blue">Blue</option>
+						<option value="green">Green</option>
+					</select>
+				</label>
+				<label htmlFor="availability" className="form__label">
+					Availability :
+					<select name="availability" className="form__input">
+						<option value="public">Public</option>
+						<option value="private">Private</option>
+					</select>
+				</label>
+				<button type="submit" className="form__button">
+					Create
+				</button>
 			</form>
 		</div>
 	);

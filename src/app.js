@@ -12,7 +12,7 @@ const App = () => {
 
 	const roomRoutes = roomContext.rooms.map((room) => {
 		return (
-			<Route key={room.id} path={`/room/${room.id}`} exact>
+			<Route key={room.id} path={`/chatroom-prototype/room/${room.id}`} exact>
 				<Room
 					name={room.name}
 					theme={room.theme}
@@ -29,7 +29,7 @@ const App = () => {
 			<Header />
 			<Switch>
 				{roomRoutes}
-				<Route path="/" exact>
+				<Route path="/chatroom-prototype" exact>
 					<Home />
 				</Route>
 			</Switch>

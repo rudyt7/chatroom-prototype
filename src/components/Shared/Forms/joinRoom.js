@@ -10,7 +10,11 @@ const JoinRoom = () => {
 	const roomLinks = roomContext.rooms.map((room) => {
 		if (room.availability === 'public') {
 			return (
-				<Link className="room__link" key={room.id} to={`/room/${room.id}`}>
+				<Link
+					className="room__link"
+					key={room.id}
+					to={`/chatroom-prototype/room/${room.id}`}
+				>
 					{room.name} : {room.id}
 				</Link>
 			);

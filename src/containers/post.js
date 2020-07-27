@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 
+import './post.css';
+
 const Post = (props) => {
 	const [upVote, setUpVote] = useState(0);
 	const [downVote, setDownVote] = useState(0);
@@ -13,11 +15,17 @@ const Post = (props) => {
 	};
 
 	return (
-		<article>
-			<h2>{props.title}</h2>
-			<div>{props.children}</div>
-			<div onClick={upVoteHandler}>{upVote}</div>
-			<div onClick={downVoteHandler}>{downVote}</div>
+		<article className="post__container">
+			<div>
+				<h2 className="post__title">{props.title}</h2>
+				<div className="post__description">{props.children}</div>
+			</div>
+			<div className="post__upVote" onClick={upVoteHandler}>
+				{upVote}
+			</div>
+			<div className="post__downVote" onClick={downVoteHandler}>
+				{downVote}
+			</div>
 		</article>
 	);
 };

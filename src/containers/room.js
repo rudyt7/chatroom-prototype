@@ -4,6 +4,7 @@ import Post from './post';
 import Modal from '../components/Shared/UI/modal';
 import { UserContext } from '../components/context/userContext';
 import { RoomContext } from '../components/context/roomContext';
+import './room.css';
 
 const Room = (props) => {
 	const [showModal, setShowModal] = useState(false);
@@ -52,12 +53,14 @@ const Room = (props) => {
 	};
 
 	const userListJsx = userList.map((user, index) => (
-		<li key={index}>{user}</li>
+		<li key={index} style={{ listStyle: 'none' }}>
+			{user}
+		</li>
 	));
 
 	return (
-		<div className="room">
-			<h1>{props.name}</h1>
+		<div className="room__container">
+			<h1 className="room__title">{props.name}</h1>
 			{showModal && (
 				<Modal
 					show={showModal}
@@ -67,11 +70,14 @@ const Room = (props) => {
 					addUser={addUsersToRoomHandler}
 				/>
 			)}
-			<section>{postsList}</section>
-			<section>
-				<ul>{userListJsx}</ul>
-			</section>
-			<button type="button" onClick={showPostHandler}>
+			<div className="room__content">
+				<section className="room__postList">{postsList}</section>
+				<section className="room__userList">
+					Active Users
+					<ul>{userListJsx}</ul>
+				</section>
+			</div>
+			<button className="room__btn-add" type="button" onClick={showPostHandler}>
 				Add Post
 			</button>
 		</div>

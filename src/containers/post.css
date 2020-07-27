@@ -1,0 +1,38 @@
+.post__container {
+	display: flex;
+	background-color: pink;
+	align-items: center;
+	flex-grow: 1;
+	border-radius: 25px;
+	height: 100px;
+	margin: 20px 5px;
+}
+
+.post__title {
+	padding-left: 5px;
+	margin-top: -30px;
+}
+
+.post__description {
+	padding-left: 5px;
+}
+
+.post__upVote {
+	padding: 20px;
+	border: 1px green solid;
+	border-radius: 25px;
+	width: 20px;
+	height: 20px;
+	cursor: pointer;
+	margin: 10px 10px 10px auto;
+}
+
+.post__downVote {
+	padding: 20px;
+	border: 1px red solid;
+	border-radius: 25px;
+	height: 20px;
+	width: 20px;
+	cursor: pointer;
+	margin: 10px;
+}

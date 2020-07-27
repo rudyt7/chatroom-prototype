@@ -6,6 +6,7 @@ import { RoomContext } from '../../context/roomContext';
 const JoinRoom = () => {
 	const roomContext = useContext(RoomContext);
 
+	// eslint-disable-next-line array-callback-return
 	const roomLinks = roomContext.rooms.map((room) => {
 		if (room.availability === 'public') {
 			return (

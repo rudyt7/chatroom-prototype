@@ -1,12 +1,12 @@
 import React, { useContext } from 'react';
 
 import { RoomContext } from '../../context/roomContext';
-import { UserContext } from '../../context/userContext';
+// import { UserContext } from '../../context/userContext';
 import './forms.css';
 
 const CreateRoom = (props) => {
 	const roomContext = useContext(RoomContext);
-	const userContext = useContext(UserContext);
+	// const userContext = useContext(UserContext);
 
 	const createRoomHandler = (event) => {
 		event.preventDefault();

@@ -12,16 +12,18 @@ const CreatePost = (props) => {
 
 	return (
 		<div>
-			<form onSubmit={createPostHandler}>
-				<label htmlFor="title">
+			<form onSubmit={createPostHandler} className="form__container">
+				<label htmlFor="title" className="form__label">
 					Title
-					<input type="text" name="title" />
+					<input type="text" name="title" className="form__input" />
 				</label>
-				<label htmlFor="description">
+				<label htmlFor="description" className="form__label">
 					Description
-					<textarea name="description"></textarea>
+					<textarea name="description" className="form__input"></textarea>
 				</label>
-				<button type="submit">Add Post</button>
+				<button type="submit" className="form__button">
+					Add Post
+				</button>
 			</form>
 		</div>
 	);

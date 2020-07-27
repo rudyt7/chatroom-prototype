@@ -6,10 +6,11 @@ export const UserContext = React.createContext({
 });
 
 const UserContextProvider = (props) => {
-	const [users, setUsers] = useState([]);
+	const [users, setUsers] = useState([{ username: 'dummy', roomId: 'dummy' }]);
 
 	const addUsersHandler = (username, roomId) => {
 		setUsers([...users, { username, roomId }]);
+		console.log(users);
 	};
 
 	return (

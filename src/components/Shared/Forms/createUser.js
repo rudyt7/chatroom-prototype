@@ -11,11 +11,13 @@ const CreateUser = (props) => {
 		const username = event.target.username.value;
 		const id = window.location.pathname.substring(6);
 		userContext.addUsers(username, id);
+		props.addUser(username);
 		props.closeHandler(false);
 	};
 
 	return (
 		<form onSubmit={createUserHandler} className="form__container">
+			<h1>Create User</h1>
 			<label htmlFor="username" className="form__label">
 				UserName :
 				<input type="text" name="username" className="form__input" />

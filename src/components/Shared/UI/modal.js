@@ -20,7 +20,12 @@ const ModalOverlay = (props) => {
 	}
 
 	if (props.type === 'user') {
-		modalJsx = <CreateUserForm closeHandler={props.closeHandler} />;
+		modalJsx = (
+			<CreateUserForm
+				closeHandler={props.closeHandler}
+				addUser={props.addUser}
+			/>
+		);
 	}
 
 	if (props.type === 'post') {
@@ -46,6 +51,7 @@ const modal = (props) => {
 					type={props.type}
 					closeHandler={props.closeHandler}
 					setPost={props.setPost}
+					addUser={props.addUser}
 				/>
 			)}
 		</div>

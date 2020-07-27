@@ -1,17 +1,30 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 
 import Post from './post';
 import Modal from '../components/Shared/UI/modal';
+import { UserContext } from '../components/context/userContext';
+import { RoomContext } from '../components/context/roomContext';
 
 const Room = (props) => {
 	const [showModal, setShowModal] = useState(false);
 	const [posts, setPosts] = useState([]);
 	const [type, setType] = useState('');
+	const [userList, setUserList] = useState([]);
+
+	const userContext = useContext(UserContext);
+	const roomContext = useContext(RoomContext);
 
 	useEffect(() => {
-		setType('user');
 		setPosts(props.posts);
-		setShowModal(true);
+		for (const user of userContext.users) {
+			// console.log(user);
+			if (user.roomId === props.id) {
+				setUserList([...userList, user.username]);
+				break;
+			}
+			setType('user');
+			setShowModal(true);
+		}
 	}, []);
 
 	const postsList = posts.map((post) => (
@@ -27,7 +40,20 @@ const Room = (props) => {
 
 	const addPostHandler = (post) => {
 		setPosts([...posts, post]);
+		for (const room in roomContext.rooms) {
+			if (room.id === props.id) {
+				room.posts.push(post);
+			}
+		}
 	};
+
+	const addUsersToRoomHandler = (user) => {
+		setUserList([...userList, user]);
+	};
+
+	const userListJsx = userList.map((user, index) => (
+		<li key={index}>{user}</li>
+	));
 
 	return (
 		<div className="room">
@@ -38,9 +64,13 @@ const Room = (props) => {
 					type={type}
 					closeHandler={setShowModal}
 					setPost={addPostHandler}
+					addUser={addUsersToRoomHandler}
 				/>
 			)}
 			<section>{postsList}</section>
+			<section>
+				<ul>{userListJsx}</ul>
+			</section>
 			<button type="button" onClick={showPostHandler}>
 				Add Post
 			</button>

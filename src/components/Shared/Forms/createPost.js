@@ -7,6 +7,7 @@ const CreatePost = (props) => {
 		const description = event.target.description.value;
 		console.log(props);
 		props.setPost({ title, description, upVote: 0, downVote: 0 });
+		props.closeHandler(false);
 	};
 
 	return (
